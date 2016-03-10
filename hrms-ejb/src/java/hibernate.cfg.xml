@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="show_sql">true</property>  
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hrms</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">toor</property>
+    <property name="hibernate.connection.pool_size">20</property>
+    <!-- <mapping resource="com/sapura/User.hbm.xml"/> -->
+    
+    <mapping class="com.sapuraglobal.hrms.dto.DeptDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.UserDeptDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.TitleDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.UserDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.RoleDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.UserRoleDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.ModuleDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.AccessDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.LeaveTypeDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.LeaveTxnDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.LeaveEntDTO"/>
+    <mapping class="com.sapuraglobal.hrms.dto.StatusDTO"/>
+     
+    
+  </session-factory>
+</hibernate-configuration>
