@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import sg.edu.ntu.hrms.ejb.UserBeanLocal;
-import sg.edu.ntul.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
 
 /**
  *

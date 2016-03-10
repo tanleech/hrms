@@ -5,8 +5,8 @@
  */
 package sg.edu.ntu.hrms.ejb;
 
-import sg.edu.ntul.hrms.dto.AccessDTO;
-import sg.edu.ntul.hrms.dto.RoleDTO;
+import sg.edu.ntu.hrms.dto.AccessDTO;
+import sg.edu.ntu.hrms.dto.RoleDTO;
 import java.util.List;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
@@ -28,8 +28,8 @@ public class AccessBean implements AccessBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            //results =  session.createQuery("FROM com.sapuraglobal.hrms.dto.RoleDTO role").list();
-            results = session.createQuery("SELECT DISTINCT role FROM com.sapuraglobal.hrms.dto.RoleDTO role left join fetch role.userRoleList").list();
+            //results =  session.createQuery("FROM sg.edu.ntu.hrms.dto.RoleDTO role").list();
+            results = session.createQuery("SELECT DISTINCT role FROM sg.edu.ntu.hrms.dto.RoleDTO role left join fetch role.userRoleList").list();
             
         }
         catch(Exception ex)
@@ -92,8 +92,8 @@ public class AccessBean implements AccessBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            //results =  session.createQuery("FROM com.sapuraglobal.hrms.dto.RoleDTO role").list();
-            String qry = "SELECT DISTINCT role FROM com.sapuraglobal.hrms.dto.RoleDTO role left join fetch role.accessList WHERE role.description = :descr";
+            //results =  session.createQuery("FROM sg.edu.ntu.hrms.dto.RoleDTO role").list();
+            String qry = "SELECT DISTINCT role FROM sg.edu.ntu.hrms.dto.RoleDTO role left join fetch role.accessList WHERE role.description = :descr";
             Query query = session.createQuery(qry);
             query.setParameter("descr", descr);
             results = query.list();
@@ -119,7 +119,7 @@ public class AccessBean implements AccessBeanLocal {
         {
             session =  DaoDelegate.getInstance().create();
             txn = session.beginTransaction();
-            String hql = "UPDATE com.sapuraglobal.hrms.dto.AccessDTO acr set acr.access = :acr, acr.modified = :modify WHERE acr.role.id = :roleId and acr.module.id=:moduleId";
+            String hql = "UPDATE sg.edu.ntu.hrms.dto.AccessDTO acr set acr.access = :acr, acr.modified = :modify WHERE acr.role.id = :roleId and acr.module.id=:moduleId";
             Query qry = session.createQuery(hql);
             //set all the accesslist
             for(int i=0;i<accessList.size();i++)
@@ -157,8 +157,8 @@ public class AccessBean implements AccessBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            //results =  session.createQuery("FROM com.sapuraglobal.hrms.dto.RoleDTO role").list();
-            String qry = "SELECT access FROM com.sapuraglobal.hrms.dto.AccessDTO access WHERE access.role.id = :roleId";
+            //results =  session.createQuery("FROM sg.edu.ntu.hrms.dto.RoleDTO role").list();
+            String qry = "SELECT access FROM sg.edu.ntu.hrms.dto.AccessDTO access WHERE access.role.id = :roleId";
             Query query = session.createQuery(qry);
             query.setParameter("roleId", roleId);
             results = query.list();

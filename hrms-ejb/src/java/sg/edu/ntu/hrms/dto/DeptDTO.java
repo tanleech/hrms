@@ -3,55 +3,68 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sg.edu.ntul.hrms.dto;
+package sg.edu.ntu.hrms.dto;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
-
 /**
  *
  * @author sapura-mac-pro-cto-C02PC1MWG3QT
  */
 @Entity  
-@Table(name= "UserRole")  
-public class UserRoleDTO implements Serializable{
+@Table(name= "Dept")  
+public class DeptDTO implements java.io.Serializable {
     
-    @Id @GeneratedValue(strategy=GenerationType.AUTO)
+    @Id @GeneratedValue
     @Column(name = "id")
     private int id;
     
-    @Column(name="created")
+    @Column(name = "descr")
+    private String description;
+
+    @Column(name = "created")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date created;
-    
-    @Column(name="modified")
+
+    @Column(name = "modified")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date modified;
     
-    @ManyToOne(cascade=CascadeType.MERGE)
-    @JoinColumn(name="Role_id")
-    private RoleDTO role;
-    
-    @ManyToOne(cascade=CascadeType.MERGE)
-    @JoinColumn(name="User_id")
-    private UserDTO user;
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="Dept_id")
+    private List<UserDeptDTO> employees;
 
+    public List<UserDeptDTO> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<UserDeptDTO> employees) {
+        this.employees = employees;
+    }
+    
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getCreated() {
@@ -69,23 +82,6 @@ public class UserRoleDTO implements Serializable{
     public void setModified(Date modified) {
         this.modified = modified;
     }
-
-    public RoleDTO getRole() {
-        return role;
-    }
-
-    public void setRole(RoleDTO role) {
-        this.role = role;
-    }
-
-    public UserDTO getUser() {
-        return user;
-    }
-
-    public void setUser(UserDTO user) {
-        this.user = user;
-    }
     
     
-
 }

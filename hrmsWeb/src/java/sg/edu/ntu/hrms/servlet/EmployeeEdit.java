@@ -23,14 +23,14 @@ import sg.edu.ntu.hrms.ejb.DeptBeanLocal;
 import sg.edu.ntu.hrms.ejb.LeaveBeanLocal;
 import sg.edu.ntu.hrms.ejb.TitleBeanLocal;
 import sg.edu.ntu.hrms.ejb.UserBeanLocal;
-import sg.edu.ntul.hrms.dto.DeptDTO;
-import sg.edu.ntul.hrms.dto.LeaveEntDTO;
-import sg.edu.ntul.hrms.dto.LeaveTypeDTO;
-import sg.edu.ntul.hrms.dto.RoleDTO;
-import sg.edu.ntul.hrms.dto.TitleDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
-import sg.edu.ntul.hrms.dto.UserDeptDTO;
-import sg.edu.ntul.hrms.dto.UserRoleDTO;
+import sg.edu.ntu.hrms.dto.DeptDTO;
+import sg.edu.ntu.hrms.dto.LeaveEntDTO;
+import sg.edu.ntu.hrms.dto.LeaveTypeDTO;
+import sg.edu.ntu.hrms.dto.RoleDTO;
+import sg.edu.ntu.hrms.dto.TitleDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.UserDeptDTO;
+import sg.edu.ntu.hrms.dto.UserRoleDTO;
 
 /**
  *

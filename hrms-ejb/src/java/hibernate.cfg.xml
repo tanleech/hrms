@@ -11,18 +11,18 @@
     <property name="hibernate.connection.pool_size">20</property>
     <!-- <mapping resource="com/sapura/User.hbm.xml"/> -->
     
-    <mapping class="com.sapuraglobal.hrms.dto.DeptDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.UserDeptDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.TitleDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.UserDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.RoleDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.UserRoleDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.ModuleDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.AccessDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.LeaveTypeDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.LeaveTxnDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.LeaveEntDTO"/>
-    <mapping class="com.sapuraglobal.hrms.dto.StatusDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.DeptDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.UserDeptDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.TitleDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.UserDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.RoleDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.UserRoleDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.ModuleDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.AccessDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.LeaveTypeDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.LeaveTxnDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.LeaveEntDTO"/>
+    <mapping class="sg.edu.ntu.hrms.dto.StatusDTO"/>
      
     
   </session-factory>

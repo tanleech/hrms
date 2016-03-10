@@ -22,9 +22,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sg.edu.ntu.hrms.ejb.DeptBeanLocal;
 import sg.edu.ntu.hrms.ejb.UserBeanLocal;
-import sg.edu.ntul.hrms.dto.DeptDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
-import sg.edu.ntul.hrms.dto.UserDeptDTO;
+import sg.edu.ntu.hrms.dto.DeptDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.UserDeptDTO;
 
 /**
  *

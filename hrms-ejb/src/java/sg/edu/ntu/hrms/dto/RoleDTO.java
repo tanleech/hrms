@@ -3,42 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sg.edu.ntul.hrms.dto;
+package sg.edu.ntu.hrms.dto;
 
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
+
 /**
  *
  * @author sapura-mac-pro-cto-C02PC1MWG3QT
  */
 @Entity  
-@Table(name= "LeaveType")  
-public class LeaveTypeDTO implements java.io.Serializable {
-    
+@Table(name= "Role") 
+public class RoleDTO implements Serializable{
+
     @Id @GeneratedValue
     @Column(name = "id")
     private int id;
-    
+
     @Column(name = "descr")
     private String description;
     
-    @Column(name = "days")
-    private double days;
-    
-    @Column(name = "mandatory")
-    private String mandatory;
-    
-    @Column(name = "annualIncre")
-    private double annualIncre;
-    
-    @Column(name = "cf")
-    private double carriedForward;
-
     @Column(name = "created")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date created;
@@ -46,41 +40,34 @@ public class LeaveTypeDTO implements java.io.Serializable {
     @Column(name = "modified")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date modified;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="Role_id")
+    private List<UserRoleDTO> userRoleList;
     
-     public int getId() {
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="Role_id")
+    private List<AccessDTO> accessList;
+
+    public List<AccessDTO> getAccessList() {
+        return accessList;
+    }
+
+    public void setAccessList(List<AccessDTO> accessList) {
+        this.accessList = accessList;
+    }
+
+
+    public int getId() {
         return id;
     }
 
-    public double getDays() {
-        return days;
+    public List<UserRoleDTO> getUserRoleList() {
+        return userRoleList;
     }
 
-    public void setDays(double days) {
-        this.days = days;
-    }
-
-    public String getMandatory() {
-        return mandatory;
-    }
-
-    public void setMandatory(String mandatory) {
-        this.mandatory = mandatory;
-    }
-
-    public double getAnnualIncre() {
-        return annualIncre;
-    }
-
-    public void setAnnualIncre(double annualIncre) {
-        this.annualIncre = annualIncre;
-    }
-
-    public double getCarriedForward() {
-        return carriedForward;
-    }
-
-    public void setCarriedForward(double carriedForward) {
-        this.carriedForward = carriedForward;
+    public void setUserRoleList(List<UserRoleDTO> userRoleList) {
+        this.userRoleList = userRoleList;
     }
 
     public void setId(int id) {
@@ -110,6 +97,7 @@ public class LeaveTypeDTO implements java.io.Serializable {
     public void setModified(Date modified) {
         this.modified = modified;
     }
-    
+
+
     
 }

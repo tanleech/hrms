@@ -5,7 +5,7 @@
  */
 package sg.edu.ntu.hrms.ejb;
 
-import sg.edu.ntul.hrms.dto.ModuleDTO;
+import sg.edu.ntu.hrms.dto.ModuleDTO;
 import java.util.List;
 import javax.ejb.Stateless;
 import org.hibernate.Session;
@@ -25,7 +25,7 @@ public class ModuleBean implements ModuleBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            results =  session.createQuery("SELECT DISTINCT module FROM com.sapuraglobal.hrms.dto.ModuleDTO module left join fetch module.accessList").list();
+            results =  session.createQuery("SELECT DISTINCT module FROM sg.edu.ntu.hrms.dto.ModuleDTO module left join fetch module.accessList").list();
         }
         catch(Exception ex)
         {

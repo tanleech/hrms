@@ -5,11 +5,11 @@
  */
 package sg.edu.ntu.hrms.ejb;
 
-import sg.edu.ntul.hrms.dto.LeaveEntDTO;
-import sg.edu.ntul.hrms.dto.LeaveTxnDTO;
-import sg.edu.ntul.hrms.dto.LeaveTypeDTO;
-import sg.edu.ntul.hrms.dto.StatusDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.LeaveEntDTO;
+import sg.edu.ntu.hrms.dto.LeaveTxnDTO;
+import sg.edu.ntu.hrms.dto.LeaveTypeDTO;
+import sg.edu.ntu.hrms.dto.StatusDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
 import java.util.List;
 import javax.ejb.Local;
 

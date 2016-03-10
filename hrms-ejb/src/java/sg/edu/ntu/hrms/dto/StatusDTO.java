@@ -3,21 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sg.edu.ntul.hrms.dto;
+package sg.edu.ntu.hrms.dto;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import javax.persistence.Transient;
 
 /**
  *
@@ -25,8 +20,8 @@ import javax.persistence.Transient;
  */
 
 @Entity  
-@Table(name= "Title")  
-public class TitleDTO implements Serializable{
+@Table(name= "Status")  
+public class StatusDTO implements Serializable{
     
     @Id @GeneratedValue
     @Column(name = "id")
@@ -42,29 +37,6 @@ public class TitleDTO implements Serializable{
     @Column(name = "modified")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date modified;
-    
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="Title_id")
-    private List<UserDTO> employees;
-
-    @Transient
-    private DeptDTO dept;
-
-    public DeptDTO getDept() {
-        return dept;
-    }
-
-    public void setDept(DeptDTO dept) {
-        this.dept = dept;
-    }
-    
-    public List<UserDTO> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<UserDTO> employees) {
-        this.employees = employees;
-    }
 
     public Date getModified() {
         return modified;

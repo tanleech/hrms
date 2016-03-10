@@ -19,10 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sg.edu.ntu.hrms.ejb.LeaveBeanLocal;
 import sg.edu.ntu.hrms.ejb.UserBeanLocal;
-import sg.edu.ntul.hrms.dto.AccessDTO;
-import sg.edu.ntul.hrms.dto.LeaveTxnDTO;
-import sg.edu.ntul.hrms.dto.LeaveTypeDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.AccessDTO;
+import sg.edu.ntu.hrms.dto.LeaveTxnDTO;
+import sg.edu.ntu.hrms.dto.LeaveTypeDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
 
 /**
  *

@@ -5,9 +5,9 @@
  */
 package sg.edu.ntu.hrms.ejb;
 
-import sg.edu.ntul.hrms.dto.RoleDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
-import sg.edu.ntul.hrms.dto.UserRoleDTO;
+import sg.edu.ntu.hrms.dto.RoleDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.UserRoleDTO;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
@@ -88,7 +88,7 @@ public class UserBean implements UserBeanLocal {
     public UserDTO getUser(String loginId)
     {
         UserDTO data=null;
-        String hql = "FROM com.sapuraglobal.hrms.dto.UserDTO U left join fetch U.role WHERE U.login = :userLogin";
+        String hql = "FROM sg.edu.ntu.hrms.dto.UserDTO U left join fetch U.role WHERE U.login = :userLogin";
         Session session=null;
         try{
             session = DaoDelegate.getInstance().create();
@@ -153,7 +153,7 @@ public class UserBean implements UserBeanLocal {
     public List<UserDTO> getAllUsers(Date from, Date to){
         
         List<UserDTO> results = null;
-        String hql = "FROM com.sapuraglobal.hrms.dto.UserDTO U left join fetch U.dept WHERE U.dateJoin BETWEEN :stDate "
+        String hql = "FROM sg.edu.ntu.hrms.dto.UserDTO U left join fetch U.dept WHERE U.dateJoin BETWEEN :stDate "
                 +    "AND :edDate AND U.deleted='N'";
         Session session = null;
         try
@@ -257,7 +257,7 @@ public class UserBean implements UserBeanLocal {
             System.out.println("roleId: "+roleId);
             System.out.println("userId: "+userId);
             
-            Query qry = session.createQuery("UPDATE com.sapuraglobal.hrms.dto.UserRoleDTO userRole SET userRole.role.id=:roleId WHERE userRole.user.id=:userId");
+            Query qry = session.createQuery("UPDATE sg.edu.ntu.hrms.dto.UserRoleDTO userRole SET userRole.role.id=:roleId WHERE userRole.user.id=:userId");
             qry.setParameter("roleId", roleId);
             qry.setParameter("userId", userId);
             qry.executeUpdate();
@@ -284,7 +284,7 @@ public class UserBean implements UserBeanLocal {
         {
             session = DaoDelegate.getInstance().create();
             txn = session.beginTransaction();
-            Query qry = session.createQuery("FROM com.sapuraglobal.hrms.dto.UserDTO user WHERE user.approver=:userId");
+            Query qry = session.createQuery("FROM sg.edu.ntu.hrms.dto.UserDTO user WHERE user.approver=:userId");
             qry.setParameter("userId", userId);
             results = qry.list();
         }catch (Exception ex)

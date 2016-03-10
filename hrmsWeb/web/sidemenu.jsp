@@ -20,7 +20,7 @@
               <li><a href="leaveSettings" id="cat"><span><strong>Leave Settings</strong></span></a></li>
               <hr width="90%"/>
               <li><a href="roleList" id="cat"><span><strong>User Roles</strong></span></a></li>
-              <li><a href="#" id="cat"><span><strong>System Logs</strong></span></a></li>
+             <!-- <li><a href="#" id="cat"><span><strong>System Logs</strong></span></a></li> -->
               
           </ul>
         </section>

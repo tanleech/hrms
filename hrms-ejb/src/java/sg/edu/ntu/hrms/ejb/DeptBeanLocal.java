@@ -5,9 +5,9 @@
  */
 package sg.edu.ntu.hrms.ejb;
 
-import sg.edu.ntul.hrms.dto.DeptDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
-import sg.edu.ntul.hrms.dto.UserDeptDTO;
+import sg.edu.ntu.hrms.dto.DeptDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.UserDeptDTO;
 import java.util.List;
 import javax.ejb.Local;
 

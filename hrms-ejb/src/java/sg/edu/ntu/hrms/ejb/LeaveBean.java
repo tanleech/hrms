@@ -5,11 +5,11 @@
  */
 package sg.edu.ntu.hrms.ejb;
 
-import sg.edu.ntul.hrms.dto.LeaveEntDTO;
-import sg.edu.ntul.hrms.dto.LeaveTxnDTO;
-import sg.edu.ntul.hrms.dto.LeaveTypeDTO;
-import sg.edu.ntul.hrms.dto.StatusDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.LeaveEntDTO;
+import sg.edu.ntu.hrms.dto.LeaveTxnDTO;
+import sg.edu.ntu.hrms.dto.LeaveTypeDTO;
+import sg.edu.ntu.hrms.dto.StatusDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
 import java.util.List;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
@@ -64,7 +64,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            results =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveTypeDTO leaveType").list();
+            results =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveTypeDTO leaveType").list();
         }
         catch(Exception ex)
         {
@@ -91,7 +91,7 @@ public class LeaveBean implements LeaveBeanLocal {
         {
             session = DaoDelegate.getInstance().create();
             txn = session.beginTransaction();
-            Query delQry = session.createQuery("DELETE FROM com.sapuraglobal.hrms.dto.LeaveTypeDTO where id = :typeId");
+            Query delQry = session.createQuery("DELETE FROM sg.edu.ntu.hrms.dto.LeaveTypeDTO where id = :typeId");
             delQry.setParameter("typeId", typeId);
             delQry.executeUpdate();
             txn.commit();
@@ -119,7 +119,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveTypeDTO WHERE id = :typeId");
+            Query qry =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveTypeDTO WHERE id = :typeId");
             qry.setParameter("typeId", id);
             result = (LeaveTypeDTO)qry.list().get(0);
         }
@@ -145,7 +145,7 @@ public class LeaveBean implements LeaveBeanLocal {
         {
             session = DaoDelegate.getInstance().create();
             txn = session.beginTransaction();
-            Query updateQry = session.createQuery("UPDATE com.sapuraglobal.hrms.dto.LeaveTypeDTO "
+            Query updateQry = session.createQuery("UPDATE sg.edu.ntu.hrms.dto.LeaveTypeDTO "
                     + " set description = :descr, days = :ent, mandatory = :option, annualIncre = :annual, cf = :cf, modified =:modified"
                     + " where id = :typeId");
             updateQry.setParameter("typeId", type.getId());
@@ -217,7 +217,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveEntDTO ent WHERE ent.user.id = :userId and ent.leaveType.id = :typeId");
+            Query qry =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveEntDTO ent WHERE ent.user.id = :userId and ent.leaveType.id = :typeId");
             qry.setParameter("userId",user.getId());
             System.out.println("leave typeId: "+leaveType.getId());
             qry.setParameter("typeId",leaveType.getId());
@@ -253,7 +253,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("SELECT ent FROM com.sapuraglobal.hrms.dto.LeaveEntDTO ent left join fetch ent.leaveType WHERE ent.user.login = :loginId");
+            Query qry =  session.createQuery("SELECT ent FROM sg.edu.ntu.hrms.dto.LeaveEntDTO ent left join fetch ent.leaveType WHERE ent.user.login = :loginId");
             qry.setParameter("loginId", loginId);
             result = qry.list();
         }
@@ -302,7 +302,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveTypeDTO type WHERE type.description = :descr");
+            Query qry =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveTypeDTO type WHERE type.description = :descr");
             qry.setParameter("descr", leaveType);
             results = qry.list();
         }
@@ -336,7 +336,7 @@ public class LeaveBean implements LeaveBeanLocal {
                 flag="Y";
             }
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveTypeDTO WHERE mandatory = :man");
+            Query qry =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveTypeDTO WHERE mandatory = :man");
             qry.setParameter("man", flag);
             results = qry.list();
         }
@@ -360,7 +360,7 @@ public class LeaveBean implements LeaveBeanLocal {
         {
             session = DaoDelegate.getInstance().create();
             txn = session.beginTransaction();
-            Query delQry = session.createQuery("DELETE FROM com.sapuraglobal.hrms.dto.LeaveEntDTO ent where id = :entId and ent.user.id=:userId");
+            Query delQry = session.createQuery("DELETE FROM sg.edu.ntu.hrms.dto.LeaveEntDTO ent where id = :entId and ent.user.id=:userId");
             delQry.setParameter("entId", entId);
             delQry.setParameter("userId", userId);
             delQry.executeUpdate();
@@ -390,7 +390,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            results =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveTxnDTO txn left join fetch txn.user").list();
+            results =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveTxnDTO txn left join fetch txn.user").list();
         }
         catch(Exception ex)
         {
@@ -411,7 +411,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveTxnDTO txn left join fetch txn.user WHERE txn.user.approver =:approverId");
+            Query qry =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveTxnDTO txn left join fetch txn.user WHERE txn.user.approver =:approverId");
             qry.setParameter("approverId", approver);
             results = qry.list();
         }
@@ -434,7 +434,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveTxnDTO txn WHERE txn.user.id =:userId");
+            Query qry =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveTxnDTO txn WHERE txn.user.id =:userId");
             qry.setParameter("userId", userId);
             results = qry.list();
         }
@@ -457,7 +457,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("FROM com.sapuraglobal.hrms.dto.StatusDTO status WHERE status.description =:descr");
+            Query qry =  session.createQuery("FROM sg.edu.ntu.hrms.dto.StatusDTO status WHERE status.description =:descr");
             qry.setParameter("descr", descr);
             status = (StatusDTO)qry.list().get(0);
         }
@@ -483,7 +483,7 @@ public class LeaveBean implements LeaveBeanLocal {
         {
             session = DaoDelegate.getInstance().create();
             txn = session.beginTransaction();
-            Query updateQry = session.createQuery("UPDATE com.sapuraglobal.hrms.dto.LeaveEntDTO ent "
+            Query updateQry = session.createQuery("UPDATE sg.edu.ntu.hrms.dto.LeaveEntDTO ent "
                     + " set  ent.balance = :bal, ent.modified =:modified "
                     + " where ent.leaveType.id = :typeId AND ent.user.id = :userId");
             System.out.println("typeId: "+leaveTypeId);
@@ -521,7 +521,7 @@ public class LeaveBean implements LeaveBeanLocal {
         {
             session = DaoDelegate.getInstance().create();
             txn = session.beginTransaction();
-            Query updateQry = session.createQuery("UPDATE com.sapuraglobal.hrms.dto.LeaveTxnDTO txn "
+            Query updateQry = session.createQuery("UPDATE sg.edu.ntu.hrms.dto.LeaveTxnDTO txn "
                     + " set  txn.status.id = :status, txn.modified =:modified "
                     + " where txn.id = :txnId");
             updateQry.setParameter("status", status);
@@ -553,7 +553,7 @@ public class LeaveBean implements LeaveBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry =  session.createQuery("FROM com.sapuraglobal.hrms.dto.LeaveTxnDTO txn WHERE txn.id =:txnId");
+            Query qry =  session.createQuery("FROM sg.edu.ntu.hrms.dto.LeaveTxnDTO txn WHERE txn.id =:txnId");
             qry.setParameter("txnId", txnId);
             results = qry.list();
             txn = (LeaveTxnDTO)results.get(0);

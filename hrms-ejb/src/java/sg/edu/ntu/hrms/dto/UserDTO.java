@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sg.edu.ntul.hrms.dto;
+package sg.edu.ntu.hrms.dto;
 
 import java.io.Serializable;
 import java.util.Date;

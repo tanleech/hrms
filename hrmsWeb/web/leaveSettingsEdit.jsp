@@ -9,7 +9,7 @@
 <%@ taglib prefix="fmt" 
        uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.sapuraglobal.hrms.dto.DeptDTO" %>
+<%@ page import="sg.edu.ntu.hrms.dto.DeptDTO" %>
 
 <!DOCTYPE html>
 <html>

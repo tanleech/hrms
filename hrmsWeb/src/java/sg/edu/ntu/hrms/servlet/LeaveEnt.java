@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sg.edu.ntu.hrms.ejb.LeaveBeanLocal;
 import sg.edu.ntu.hrms.ejb.UserBeanLocal;
-import sg.edu.ntul.hrms.dto.LeaveEntDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.LeaveEntDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
 
 /**
  *

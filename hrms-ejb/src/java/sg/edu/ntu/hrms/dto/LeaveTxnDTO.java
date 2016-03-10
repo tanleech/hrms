@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sg.edu.ntul.hrms.dto;
+package sg.edu.ntu.hrms.dto;
 
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -20,26 +20,31 @@ import javax.persistence.Temporal;
  * @author sapura-mac-pro-cto-C02PC1MWG3QT
  */
 @Entity  
-@Table(name= "Leave_ent")  
-public class LeaveEntDTO implements java.io.Serializable {
+@Table(name= "Leave_txn")  
+public class LeaveTxnDTO implements java.io.Serializable {
     
     @Id @GeneratedValue
     @Column(name = "id")
     private int id;
-
-
-    @Column(name = "carriedOver")
-    private double carriedOver;
     
-    @Column(name = "current")
-    private double current ;
-
-    @Column(name = "balance")
-    private double balance;
+    @Column(name = "start")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date start;
     
-    @Column(name = "max")
-    private double max;
-
+    @Column(name = "end")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date end;
+    
+    @Column(name = "start_slot")
+    private String start_slot;
+    
+    @Column(name = "end_slot")
+    private String end_slot;
+    
+   @ManyToOne(cascade=CascadeType.MERGE)
+    @JoinColumn(name="status_id")
+    private StatusDTO status;
+    
     @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name="User_id")
     private UserDTO user;
@@ -47,15 +52,10 @@ public class LeaveEntDTO implements java.io.Serializable {
     @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name="LeaveType_id")
     private LeaveTypeDTO leaveType;
-
-    public double getMax() {
-        return max;
-    }
-
-   public void setMax(double max) {
-        this.max = max;
-    }
-
+    
+    @Column(name = "days")
+    private double days;
+    
     @Column(name = "created")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date created;
@@ -63,6 +63,16 @@ public class LeaveEntDTO implements java.io.Serializable {
     @Column(name = "modified")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date modified;
+
+    public double getDays() {
+        return days;
+    }
+
+    public void setDays(double days) {
+        this.days = days;
+    }
+    
+    
     
      public int getId() {
         return id;
@@ -76,29 +86,44 @@ public class LeaveEntDTO implements java.io.Serializable {
         return created;
     }
 
-    public double getCarriedOver() {
-        return carriedOver;
+    public Date getStart() {
+        return start;
     }
 
-    public void setCarriedOver(double carriedOver) {
-        this.carriedOver = carriedOver;
+    public void setStart(Date start) {
+        this.start = start;
     }
 
-    public double getCurrent() {
-        return current;
+    public Date getEnd() {
+        return end;
     }
 
-    public void setCurrent(double current) {
-        this.current = current;
+    public void setEnd(Date end) {
+        this.end = end;
     }
 
-
-    public double getBalance() {
-        return balance;
+    public String getStart_slot() {
+        return start_slot;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public void setStart_slot(String start_slot) {
+        this.start_slot = start_slot;
+    }
+
+    public String getEnd_slot() {
+        return end_slot;
+    }
+
+    public void setEnd_slot(String end_slot) {
+        this.end_slot = end_slot;
+    }
+
+    public StatusDTO getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusDTO status) {
+        this.status = status;
     }
 
     public UserDTO getUser() {

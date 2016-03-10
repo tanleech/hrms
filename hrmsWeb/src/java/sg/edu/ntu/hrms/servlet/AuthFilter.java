@@ -21,8 +21,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import sg.edu.ntul.hrms.dto.AccessDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.AccessDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
 
 /**
  *

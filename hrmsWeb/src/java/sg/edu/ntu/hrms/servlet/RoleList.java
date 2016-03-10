@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sg.edu.ntu.hrms.ejb.AccessBeanLocal;
-import sg.edu.ntul.hrms.dto.RoleDTO;
+import sg.edu.ntu.hrms.dto.RoleDTO;
 
 /**
  *

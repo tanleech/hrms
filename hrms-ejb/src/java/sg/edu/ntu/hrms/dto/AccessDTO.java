@@ -3,34 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sg.edu.ntul.hrms.dto;
+package sg.edu.ntu.hrms.dto;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
+
 /**
  *
  * @author sapura-mac-pro-cto-C02PC1MWG3QT
  */
 @Entity  
-@Table(name= "Dept")  
-public class DeptDTO implements java.io.Serializable {
+@Table(name= "Access")
+public class AccessDTO implements Serializable{
     
     @Id @GeneratedValue
     @Column(name = "id")
     private int id;
     
-    @Column(name = "descr")
-    private String description;
-
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="Module_id")
+    private ModuleDTO module;
+    
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="Role_id")
+    private RoleDTO role;
+    
     @Column(name = "created")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date created;
@@ -39,16 +45,25 @@ public class DeptDTO implements java.io.Serializable {
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date modified;
     
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="Dept_id")
-    private List<UserDeptDTO> employees;
+    @Column(name = "access")
+    private int access;
+    
 
-    public List<UserDeptDTO> getEmployees() {
-        return employees;
+    public int getAccess() {
+        return access;
     }
 
-    public void setEmployees(List<UserDeptDTO> employees) {
-        this.employees = employees;
+    public void setAccess(int access) {
+        this.access = access;
+    }
+
+
+    public ModuleDTO getModule() {
+        return module;
+    }
+
+    public void setModule(ModuleDTO module) {
+        this.module = module;
     }
     
     public int getId() {
@@ -59,12 +74,13 @@ public class DeptDTO implements java.io.Serializable {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+
+    public RoleDTO getRole() {
+        return role;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRole(RoleDTO role) {
+        this.role = role;
     }
 
     public Date getCreated() {
@@ -83,5 +99,7 @@ public class DeptDTO implements java.io.Serializable {
         this.modified = modified;
     }
     
+    
+
     
 }

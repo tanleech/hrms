@@ -5,7 +5,7 @@
  */
 package sg.edu.ntu.hrms.ejb;
 
-import sg.edu.ntul.hrms.dto.TitleDTO;
+import sg.edu.ntu.hrms.dto.TitleDTO;
 import java.util.List;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
@@ -27,7 +27,7 @@ public class TitleBean implements TitleBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            results = session.createQuery("SELECT DISTINCT title FROM com.sapuraglobal.hrms.dto.TitleDTO title left join fetch title.employees").list();
+            results = session.createQuery("SELECT DISTINCT title FROM sg.edu.ntu.hrms.dto.TitleDTO title left join fetch title.employees").list();
             
 
         }
@@ -83,7 +83,7 @@ public class TitleBean implements TitleBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry = session.createQuery("SELECT title FROM com.sapuraglobal.hrms.dto.TitleDTO title WHERE title.id = :id");
+            Query qry = session.createQuery("SELECT title FROM sg.edu.ntu.hrms.dto.TitleDTO title WHERE title.id = :id");
             qry.setParameter("id", id);
             results = qry.list();
         }
@@ -108,7 +108,7 @@ public class TitleBean implements TitleBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            Query qry = session.createQuery("SELECT title FROM com.sapuraglobal.hrms.dto.TitleDTO title WHERE title.description = :descr");
+            Query qry = session.createQuery("SELECT title FROM sg.edu.ntu.hrms.dto.TitleDTO title WHERE title.description = :descr");
             qry.setParameter("descr", descr);
             results = qry.list();
             if(results!=null&&results.size()>0)

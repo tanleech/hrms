@@ -3,15 +3,15 @@
     Created on : Feb 3, 2016, 3:42:03 PM
     Author     : sapura-mac-pro-cto-C02PC1MWG3QT
 --%>
-
-<%@page import="com.sapuraglobal.hrms.dto.UserDTO"%>
+ 
+<%@page import="sg.edu.ntu.hrms.dto.UserDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
 
       <header class="main-header">
         <!-- Logo -->
         <div class="logo">
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Sapura HR System</b></span>
+          <span class="logo-lg"><b>HR System</b></span>
         </div>
         <!-- Header Navbar: style can be found in header.less -->
         <!-- Header Navbar: style can be found in header.less -->

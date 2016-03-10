@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sg.edu.ntu.hrms.ejb.LeaveBeanLocal;
-import sg.edu.ntul.hrms.dto.LeaveTypeDTO;
+import sg.edu.ntu.hrms.dto.LeaveTypeDTO;
 
 /**
  *

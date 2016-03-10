@@ -5,9 +5,9 @@
  */
 package sg.edu.ntu.hrms.ejb;
 
-import sg.edu.ntul.hrms.dto.DeptDTO;
-import sg.edu.ntul.hrms.dto.UserDTO;
-import sg.edu.ntul.hrms.dto.UserDeptDTO;
+import sg.edu.ntu.hrms.dto.DeptDTO;
+import sg.edu.ntu.hrms.dto.UserDTO;
+import sg.edu.ntu.hrms.dto.UserDeptDTO;
 import java.util.List;
 import javax.ejb.Stateless;
 import org.hibernate.Query;
@@ -28,7 +28,7 @@ public class DeptBean implements DeptBeanLocal {
         try
         {
             session = DaoDelegate.getInstance().create();
-            results =  session.createQuery("SELECT DISTINCT dept FROM com.sapuraglobal.hrms.dto.DeptDTO dept left join fetch dept.employees").list();
+            results =  session.createQuery("SELECT DISTINCT dept FROM sg.edu.ntu.hrms.dto.DeptDTO dept left join fetch dept.employees").list();
         }
         catch(Exception ex)
         {
@@ -124,7 +124,7 @@ public class DeptBean implements DeptBeanLocal {
             session =  DaoDelegate.getInstance().create();
             txn = session.beginTransaction();
             //retrieve the full data from db.
-            String deptl = "SELECT DISTINCT dept FROM com.sapuraglobal.hrms.dto.DeptDTO dept left join fetch dept.employees WHERE dept.description = :descr";
+            String deptl = "SELECT DISTINCT dept FROM sg.edu.ntu.hrms.dto.DeptDTO dept left join fetch dept.employees WHERE dept.description = :descr";
             Query deptQuery = session.createQuery(deptl);
             deptQuery.setParameter("descr", deptDescr);
             
@@ -163,7 +163,7 @@ public class DeptBean implements DeptBeanLocal {
             txn = session.beginTransaction();
             //retrieve the full data from db.
             //retrieve from UserDept
-            String hql = "FROM com.sapuraglobal.hrms.dto.UserDeptDTO WHERE User_id=:userId AND Dept_id=:deptId";
+            String hql = "FROM sg.edu.ntu.hrms.dto.UserDeptDTO WHERE User_id=:userId AND Dept_id=:deptId";
             
             Query qry = session.createQuery(hql);
             qry.setParameter("userId", userId);
@@ -202,7 +202,7 @@ public class DeptBean implements DeptBeanLocal {
             txn = session.beginTransaction();
             //retrieve the full data from db.
             //retrieve from UserDept
-            String hql = "UPDATE com.sapuraglobal.hrms.dto.UserDeptDTO userDept SET userDept.manager='' WHERE userDept.dept.id=:deptId AND manager = 'Y'";
+            String hql = "UPDATE sg.edu.ntu.hrms.dto.UserDeptDTO userDept SET userDept.manager='' WHERE userDept.dept.id=:deptId AND manager = 'Y'";
             Query qry = session.createQuery(hql);
             qry.setParameter("deptId", deptId);
             qry.executeUpdate();
@@ -233,7 +233,7 @@ public class DeptBean implements DeptBeanLocal {
             txn = session.beginTransaction();
             //retrieve the full data from db.
             //retrieve from UserDept
-            String hql = "DELETE FROM com.sapuraglobal.hrms.dto.UserDeptDTO WHERE Dept_id=:deptId AND User_id = :userId ";
+            String hql = "DELETE FROM sg.edu.ntu.hrms.dto.UserDeptDTO WHERE Dept_id=:deptId AND User_id = :userId ";
             Query qry = session.createQuery(hql);
             qry.setParameter("userId",userId);
             qry.setParameter("deptId", deptId);
@@ -266,7 +266,7 @@ public class DeptBean implements DeptBeanLocal {
             txn = session.beginTransaction();
             //retrieve the full data from db.
             //retrieve from UserDept
-            String hql = "UPDATE com.sapuraglobal.hrms.dto.UserDeptDTO userDept SET userDept.manager='Y' WHERE userDept.dept.id=:deptId AND userDept.user.id = :userId ";
+            String hql = "UPDATE sg.edu.ntu.hrms.dto.UserDeptDTO userDept SET userDept.manager='Y' WHERE userDept.dept.id=:deptId AND userDept.user.id = :userId ";
             Query qry = session.createQuery(hql);
             qry.setParameter("deptId", deptId);
             qry.setParameter("userId", userId);
@@ -299,7 +299,7 @@ public class DeptBean implements DeptBeanLocal {
             txn = session.beginTransaction();
             //retrieve the full data from db.
             //retrieve from UserDept
-            String hql = "UPDATE com.sapuraglobal.hrms.dto.UserDeptDTO userDept SET userDept.dept.id=:deptId WHERE userDept.user.id = :userId ";
+            String hql = "UPDATE sg.edu.ntu.hrms.dto.UserDeptDTO userDept SET userDept.dept.id=:deptId WHERE userDept.user.id = :userId ";
             Query qry = session.createQuery(hql);
             System.out.println("deptId: "+deptId);
             System.out.println("userId: "+userId);
@@ -335,7 +335,7 @@ public class DeptBean implements DeptBeanLocal {
             txn = session.beginTransaction();
             //retrieve the full data from db.
             //retrieve from UserDept
-            String hql = "UPDATE com.sapuraglobal.hrms.dto.DeptDTO dept SET dept.description=:descr WHERE dept.description = :oldDescr ";
+            String hql = "UPDATE sg.edu.ntu.hrms.dto.DeptDTO dept SET dept.description=:descr WHERE dept.description = :oldDescr ";
             Query qry = session.createQuery(hql);
             System.out.println("old descr: "+oldName);
             System.out.println("new descr: "+newName);
