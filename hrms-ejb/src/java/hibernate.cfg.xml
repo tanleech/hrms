@@ -3,13 +3,17 @@
 <hibernate-configuration>
   <session-factory>
     <property name="show_sql">true</property>  
+    <!--
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hrms</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">toor</property>
     <property name="hibernate.connection.pool_size">20</property>
+    -->
     <!-- <mapping resource="com/sapura/User.hbm.xml"/> -->
+    
+    <property name="connection.datasource">jdbc/CI6225</property>
     
     <mapping class="sg.edu.ntu.hrms.dto.DeptDTO"/>
     <mapping class="sg.edu.ntu.hrms.dto.UserDeptDTO"/>
