@@ -25,7 +25,7 @@ import sg.edu.ntu.hrms.dto.TitleDTO;
 )
 public class AddTitle extends HttpServlet {
 
-    @EJB
+    @EJB(beanName="TitleBean")
     private TitleBeanLocal titleBean;
     
 

@@ -1,2 +1,2 @@
-ant deploy
+ant run
 pause

@@ -26,7 +26,7 @@ import sg.edu.ntu.hrms.dto.RoleDTO;
 )
 public class RoleList extends HttpServlet {
 
-    @EJB
+    @EJB(beanName="AccessBean")
     private AccessBeanLocal userAccessBean;
 
     /**

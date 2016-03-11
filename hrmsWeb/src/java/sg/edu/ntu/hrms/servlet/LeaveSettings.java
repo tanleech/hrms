@@ -26,7 +26,7 @@ import sg.edu.ntu.hrms.dto.LeaveTypeDTO;
 )
 
 public class LeaveSettings extends HttpServlet {
-    @EJB
+    @EJB(beanName="LeaveBean")
     private LeaveBeanLocal leaveBean;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

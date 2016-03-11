@@ -30,10 +30,10 @@ import sg.edu.ntu.hrms.dto.UserDTO;
 )
 public class Login extends HttpServlet {
 
-    @EJB
+    @EJB(beanName="UserBean")
     private UserBeanLocal userBean;
 
-    @EJB
+    @EJB(beanName="AccessBean")
     private AccessBeanLocal accessBean;
 
     /**

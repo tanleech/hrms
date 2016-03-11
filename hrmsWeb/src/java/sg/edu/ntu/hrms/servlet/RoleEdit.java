@@ -30,9 +30,9 @@ import sg.edu.ntu.hrms.dto.RoleDTO;
 )
 
 public class RoleEdit extends HttpServlet {
-    @EJB
+    @EJB(beanName="ModuleBean")
     private ModuleBeanLocal moduleBean;
-    @EJB
+    @EJB(beanName="AccessBean")
     private AccessBeanLocal accessBean;
     
 

@@ -36,7 +36,7 @@ import sg.edu.ntu.hrms.dto.UserDTO;
 )
 public class EmployeeList extends HttpServlet {
 
-    @EJB
+    @EJB(beanName="UserBean")
     private UserBeanLocal userBean;
 
     

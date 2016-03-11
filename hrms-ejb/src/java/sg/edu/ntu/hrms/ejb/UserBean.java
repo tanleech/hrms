@@ -11,12 +11,15 @@ import sg.edu.ntu.hrms.dto.UserRoleDTO;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -27,6 +30,7 @@ import org.hibernate.Transaction;
  */
 @Stateless
 public class UserBean implements UserBeanLocal {
+    Logger logger = Logger.getLogger(UserBean.class.getName());
     
     @Override
     public UserDTO authenticate(String loginId, String password, boolean useLDAP) {
@@ -58,17 +62,19 @@ public class UserBean implements UserBeanLocal {
 	    ctx.close();
             //authenticated get UserDTO
             userData = getUser(loginId);
-            System.out.println("user id: "+userData.getId());
+            //System.out.println("user id: "+userData.getId());
+            logger.log(Level.INFO, "Login Using LDAP");
             
            }
            else
            {
                userData = getUser(loginId);
-               System.out.println("user id: "+userData.getId());
+               //System.out.println("user id: "+userData.getId());
                if(!password.equals(userData.getPassword()))
                {
                    userData=null;
                }
+               logger.log(Level.INFO, "Login Using DB");
            }
             
             
@@ -101,6 +107,7 @@ public class UserBean implements UserBeanLocal {
             }
         }catch (Exception ex)
         {
+            
             ex.printStackTrace();
         }
         finally
@@ -140,7 +147,8 @@ public class UserBean implements UserBeanLocal {
             txn.commit(); 
         }catch (Exception ex)
         {
-            txn.rollback();
+            if(txn!=null)
+                txn.rollback();
             ex.printStackTrace();
         }
         finally

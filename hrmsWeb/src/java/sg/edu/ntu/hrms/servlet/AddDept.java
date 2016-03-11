@@ -25,7 +25,7 @@ import sg.edu.ntu.hrms.dto.DeptDTO;
     urlPatterns = {"/addDept"}
 )
 public class AddDept extends HttpServlet {
-    @EJB
+    @EJB(beanName="DeptBean")
     private DeptBeanLocal deptBean;
     
 

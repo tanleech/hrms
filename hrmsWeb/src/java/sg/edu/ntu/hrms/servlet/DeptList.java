@@ -26,7 +26,7 @@ import sg.edu.ntu.hrms.dto.DeptDTO;
 )
 public class DeptList extends HttpServlet {
 
-    @EJB
+    @EJB(beanName="DeptBean")
     private DeptBeanLocal deptBean;
 
     /**

@@ -1,0 +1,11 @@
+<project name="hrms" default="default" basedir="." xmlns:ear="http://www.netbeans.org/ns/j2ee-earproject/2">
+
+<target name="deploy"
+    description="deploys application to glassfish">
+    <exec failonerror="true" executable="cmd">
+     <arg value="/c" />
+    <arg value="asadmin --host ${host} deploy ${ear}" />
+
+    </exec>
+</target>
+</project>

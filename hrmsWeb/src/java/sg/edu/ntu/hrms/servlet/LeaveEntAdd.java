@@ -29,10 +29,10 @@ import sg.edu.ntu.hrms.dto.UserDTO;
 )
 
 public class LeaveEntAdd extends HttpServlet {
-    @EJB
+    @EJB(beanName="LeaveBean")
     private LeaveBeanLocal leaveBean;
     
-    @EJB
+    @EJB(beanName="UserBean")
     private UserBeanLocal userBean;
 
     /**

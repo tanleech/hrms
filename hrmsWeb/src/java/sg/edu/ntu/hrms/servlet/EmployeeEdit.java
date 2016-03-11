@@ -40,15 +40,15 @@ import sg.edu.ntu.hrms.dto.UserRoleDTO;
     urlPatterns = {"/employeeEdit"}
 )
 public class EmployeeEdit extends HttpServlet {
-    @EJB
+    @EJB(beanName="UserBean")
     private UserBeanLocal userBean;
-    @EJB
+    @EJB(beanName="TitleBean")
     private TitleBeanLocal titleBean;
-    @EJB
+    @EJB(beanName="DeptBean")
     private DeptBeanLocal deptBean;
-    @EJB
+    @EJB(beanName="AccessBean")
     private AccessBeanLocal accessBean;
-    @EJB
+    @EJB(beanName="LeaveBean")
     private LeaveBeanLocal leaveBean;
 
 
