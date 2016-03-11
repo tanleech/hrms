@@ -212,6 +212,12 @@
                          <input type="text" class="form-control" name="login" id="login"
                                 value="${requestScope.user.login}"/>   
                      </div>
+                     <label class=" control-label col-sm-2">*password</label>
+                     <div class="col-sm-3">
+                        <input type="text" class="form-control" name="passwd" id="passwd"
+                               value="${requestScope.user.password}"/>   
+                     </div>
+                     
                     </div>
                       
                     <div class="form-group">

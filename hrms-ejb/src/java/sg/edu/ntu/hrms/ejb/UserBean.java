@@ -69,7 +69,7 @@ public class UserBean implements UserBeanLocal {
            else
            {
                userData = getUser(loginId);
-               //System.out.println("user id: "+userData.getId());
+               System.out.println("user id: "+userData.getId());
                if(!password.equals(userData.getPassword()))
                {
                    userData=null;
@@ -233,6 +233,7 @@ public class UserBean implements UserBeanLocal {
             user.setPhone(userDTO.getPhone());
             user.setOffice(userDTO.getOffice());
             user.setLogin(userDTO.getLogin());
+            user.setPassword(userDTO.getPassword());
             user.setDateJoin(userDTO.getDateJoin());
             user.setProbationDue(userDTO.getProbationDue());
             user.setTitle(userDTO.getTitle());

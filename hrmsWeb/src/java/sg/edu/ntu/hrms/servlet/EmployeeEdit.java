@@ -207,6 +207,7 @@ public class EmployeeEdit extends HttpServlet {
         String mgr = request.getParameter("mgr");
         String role = request.getParameter("role");
         String login = request.getParameter("login");
+        String password = request.getParameter("passwd");
         String dateJoin = request.getParameter("dateJoin");
         String probDue = request.getParameter("probDue");
         String base = request.getParameter("base");
@@ -221,6 +222,7 @@ public class EmployeeEdit extends HttpServlet {
         user.setPhone(mobile);
         user.setOffice(office);
         user.setLogin(login);
+        user.setPassword(password);
         /*
         user.setMax(Double.parseDouble(max));
         user.setBase(Double.parseDouble(base));

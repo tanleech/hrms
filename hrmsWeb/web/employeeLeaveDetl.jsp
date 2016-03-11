@@ -94,7 +94,7 @@
                            </div>
                            <div class="form-group">
                                <div class="col-sm-1">
-                                   <button type="button" class="btn btn-primary pull-left" id="saveBtn">Update</button>
+                                   <!-- <button type="button" class="btn btn-primary pull-left" id="saveBtn">Update</button> -->
                                </div>
                            </div>
                           </div>

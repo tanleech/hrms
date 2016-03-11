@@ -89,6 +89,7 @@ public class AccessBean implements AccessBeanLocal {
     public RoleDTO getRole(String descr) {
         List results=null;
         Session session=null;
+        RoleDTO data = null;
         try
         {
             session = DaoDelegate.getInstance().create();
@@ -97,6 +98,10 @@ public class AccessBean implements AccessBeanLocal {
             Query query = session.createQuery(qry);
             query.setParameter("descr", descr);
             results = query.list();
+            if(results!=null&&results.size()>0)
+            {
+                data = (RoleDTO)results.get(0);
+            }
         }
         catch(Exception ex)
         {
@@ -107,7 +112,7 @@ public class AccessBean implements AccessBeanLocal {
             DaoDelegate.getInstance().close(session);
         }
         
-        return (RoleDTO)results.get(0);
+        return data;
     }
 
     @Override
